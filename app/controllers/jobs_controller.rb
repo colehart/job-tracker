@@ -39,12 +39,11 @@ class JobsController < ApplicationController
     else
       render :edit
     end
-
-
   end
 
   def destroy
-    # implement on your own!
+    Job.destroy(params[:id])
+    redirect_to company_jobs_path
   end
 
   private
