@@ -42,7 +42,8 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    Job.destroy(params[:id])
+    @job = Job.destroy(params[:id])
+    flash[:success] = "#{@job.title} deleted!"
     redirect_to company_jobs_path
   end
 

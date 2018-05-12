@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-describe "User sees all jobs" do
-  scenario "a user sees all the jobs for a specific company" do
-    company = Company.create!(name: "ESPN")
-    job = company.jobs.create!(title: "Programmer", level_of_interest: 70, city: "Denver")
+describe 'User sees all jobs' do
+  scenario 'a user sees all the jobs for a specific company' do
+    company = Company.create!(name: 'ESPN')
+    job = company.jobs.create!(title: 'Programmer', level_of_interest: 70, city: 'Denver')
 
     visit company_job_path(company, job)
 
-    click_link "Edit"
+    click_link 'Edit'
 
-    fill_in "job[title]", with: "Developer"
-    fill_in "job[description]", with: "So fun!"
-    fill_in "job[level_of_interest]", with: 80
-    fill_in "job[city]", with: "Denver"
+    fill_in 'job[title]', with: 'Developer'
+    fill_in 'job[description]', with: 'So fun!'
+    fill_in 'job[level_of_interest]', with: 80
+    fill_in 'job[city]', with: 'Denver'
 
     click_on 'Update Job'
 
