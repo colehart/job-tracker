@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'when user visits company  page ' do
   scenario 'a user can create new contact by filling out a form' do
-    company = Company.create!(name: "Turing")
+    company = Company.create!(name: 'Turing')
 
     visit company_path(company)
     click_on 'Create New Contact'
@@ -12,7 +12,6 @@ describe 'when user visits company  page ' do
     fill_in 'contact[email]', with: 'manoj.email.com'
 
     click_on 'Create Contact'
-
 
     expect(current_path).to eq(company_path(company))
 

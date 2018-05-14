@@ -3,7 +3,8 @@ require 'rails_helper'
 describe Contact do
   describe 'validations' do
     it 'is invalid without a name' do
-      contact = Contact.new(position: 'Hiring manager', email: 'hiring_manager.gmail.com')
+      contact = Contact.new(position: 'Hiring manager',
+                            email: 'hiring_manager.gmail.com')
 
       expect(contact).to be_invalid
     end
@@ -23,7 +24,10 @@ describe Contact do
   describe 'validations' do
     it 'is valid with name position and  a email' do
       company = Company.create(name: 'Turing')
-      contact = Contact.new(company: company, name: 'Manoj', position: 'hiring manager', email: 'hiring_manager.gmail.com')
+      contact = Contact.new(company: company,
+                            name: 'Manoj',
+                            position: 'hiring manager',
+                            email: 'hiring_manager.gmail.com')
 
       expect(contact).to be_valid
     end
@@ -32,7 +36,10 @@ describe Contact do
   describe 'relationships' do
     it 'belongs to a company' do
       company = Company.create(name: 'Turing')
-      contact = Contact.new(company: company, name: 'Manoj', position: 'hiring manager', email: 'hiring_manager.gmail.com')
+      contact = Contact.new(company: company,
+                            name: 'Manoj',
+                            position: 'hiring manager',
+                            email: 'hiring_manager.gmail.com')
 
       expect(contact).to respond_to(:company)
     end
