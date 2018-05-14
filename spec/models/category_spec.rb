@@ -5,8 +5,23 @@ describe Category do
   describe 'validations' do
     context 'invalid attributes' do
       it 'is invalid without a title' do
-        company = Category.new()
-        expect(company).to be_invalid
+        category = Category.new()
+        expect(category).to be_invalid
+      end
+    end
+  end
+
+  describe 'validations' do
+    context 'valid attributes' do
+      it 'is valid with a title' do
+        category = Category.new(title: 'education')
+        expect(category).to be_valid
+      end
+
+      it 'has a unique title' do
+        Category.create(title: 'education')
+        category = Category.new(title: 'education')
+        expect(category).to be_invalid
       end
     end
   end

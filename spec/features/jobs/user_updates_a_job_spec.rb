@@ -2,8 +2,9 @@ require 'rails_helper'
 
 describe 'User sees all jobs' do
   scenario 'a user sees all the jobs for a specific company' do
+    category = Category.create!(title: 'Information')
     company = Company.create!(name: 'ESPN')
-    job = company.jobs.create!(title: 'Programmer', level_of_interest: 70, city: 'Denver')
+    job = company.jobs.create!(title: 'Programmer', level_of_interest: 70, city: 'Denver', category: category)
 
     visit company_job_path(company, job)
 
