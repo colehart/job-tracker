@@ -11,7 +11,6 @@ describe 'user edits a existing category' do
 
     expect(current_path).to eq(category_path(category))
     expect(page).to have_content('Finance')
-
+    expect(page).to have_content('Finance updated!')
   end
-
 end
