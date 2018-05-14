@@ -7,7 +7,7 @@ describe 'User sees all jobs' do
     company.jobs.create!(title: 'Developer', level_of_interest: 70, city: 'Denver', category: category)
     company.jobs.create!(title: 'QA Analyst', level_of_interest: 70, city: 'New York City', category: category)
 
-    visit company_path(company)
+    visit company_jobs_path(company)
 
     expect(page).to have_content('ESPN')
     expect(page).to have_content('Developer')
