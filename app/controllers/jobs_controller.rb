@@ -26,6 +26,14 @@ class JobsController < ApplicationController
   def show
     @company = Company.find(params[:company_id])
     @job = Job.find(params[:id])
+    @job_comment = JobComment.new
+    @job_comments = @job.job_comments
+    # if @job_comment.save
+    #   flash[:success] = 'You created a job comment.'
+    #   redirect_to company_job_path(@company, @job)
+    # else
+    #   flash[:error] = 'Job comment could not be created. Please add content.'
+    # end
   end
 
   def edit
