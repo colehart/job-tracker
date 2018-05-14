@@ -17,6 +17,12 @@ describe Category do
         category = Category.new(title: 'education')
         expect(category).to be_valid
       end
+
+      it 'has a unique title' do
+        Category.create(title: 'education')
+        category = Category.new(title: 'education')
+        expect(category).to be_invalid
+      end
     end
   end
 end
