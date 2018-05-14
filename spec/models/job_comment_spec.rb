@@ -6,9 +6,10 @@ describe JobComment do
       job_comment = JobComment.new
       expect(job_comment).to be_invalid
     end
-    # it 'is valid with content' do
-    #
-    # end
+    it 'is valid with content' do
+      job_comment = JobComment.new(content: 'This is some content')
+      expect(job_comment).to be_valid
+    end
   end
   # describe 'relationships' do
   #   it 'belongs to a job' do
