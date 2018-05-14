@@ -15,6 +15,7 @@ class CategoriesController < ApplicationController
       flash[:success] = "#{@category.title} created!"
       redirect_to category_path(@category)
     else
+      flash[:failed] = "#{@category.title} already Exists!"
       render :new
     end
   end
