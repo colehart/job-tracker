@@ -1,12 +1,27 @@
 <strong><%= @company.name %></strong>
+<button><%= link_to "Edit", edit_company_path %></button>
+<button><%= link_to "Delete", company_path, method: :delete %></button>
 
-<%= link_to 'Jobs', company_jobs_path(@company) %>
+<%= link_to "All #{@company.name} Jobs", company_jobs_path(@company) %>
 
-<h3> please contact for further info </h3>
+<h3>Enter New Contact Info:</h3>
+
+<%=form_for [@company, @contact] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :position %>
+  <%= f.text_field :position %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.submit %>
+<% end %>
+
+<h3>Existing Contacts</h3>
+<ul>
 <% @company.contacts.each do |contact| %>
-    <ul><%=contact.name%></ul>
-    <li><%=contact.position%></li>
-    <li><%=contact.email%></li>
+  <li><%=contact.name%> <%=contact.position%> <%=contact.email%></li>
 <%end%>
-
-<%= link_to 'Create New Contact', new_company_contact_path(@company) %>
+</ul>

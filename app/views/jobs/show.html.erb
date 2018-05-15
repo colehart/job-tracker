@@ -1,4 +1,4 @@
-<h1> <%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %></h1>
+<h1><%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %></h1>
 
 <button><%= link_to "Edit", edit_company_job_path(@company, @job) %></button>
 <button><%= link_to "Delete", company_job_path, method: :delete %></button>
