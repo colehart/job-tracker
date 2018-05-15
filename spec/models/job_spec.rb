@@ -52,11 +52,11 @@ describe Job do
                     description: 'Wahooo')
       expect(job).to respond_to(:category)
     end
-    it 'has many job comments' do
+    it 'has many comments' do
       job = Job.new(title: 'Software',
                     level_of_interest: 70,
                     description: 'Wahooo')
-      expect(job).to respond_to(:job_comments)
+      expect(job).to respond_to(:comments)
     end
   end
 end

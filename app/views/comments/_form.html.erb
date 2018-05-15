@@ -1,6 +1,6 @@
-<%# app/views/job_comments/_form %>
+<%# app/views/comments/_form %>
 
-<%=form_for [@job, @job_comment] do |f| %>
+<%=form_for [@job, @comment] do |f| %>
   <%= f.label :content %>
   <%= f.text_area :content %>
 

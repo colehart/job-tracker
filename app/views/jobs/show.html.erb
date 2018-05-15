@@ -7,9 +7,9 @@
 
 <h3>Location: <%= @job.city %></h3>
 <h3>Level of Interest: <%= @job.level_of_interest %></h3>
-<section id="job-comment-form">
+<section id="comment-form">
   <h3>Notes:</h3>
-  <%= form_for [@job, @job_comment] do |f| %>
+  <%= form_for [@job, @comment] do |f| %>
     <%= f.label :content %>
     <%= f.text_area :content %>
     <%= f.submit %>
@@ -17,8 +17,8 @@
 </section>
 <hr>
 <ul>
-  <% if @job_comments %>
-    <%  @job_comments.each do |comment| %>
+  <% if @comments %>
+    <%  @comments.each do |comment| %>
       <li><%= comment.created_at %> <%= comment.content %></li>
     <% end %>
   <% end %>

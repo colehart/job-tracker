@@ -1,5 +1,5 @@
 # app/models/job_comments
-class JobComment < ApplicationRecord
+class Comment < ApplicationRecord
   validates_presence_of :content
   belongs_to :job
 end

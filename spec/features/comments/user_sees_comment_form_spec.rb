@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'User sees a job comment' do
+describe 'User sees a comment' do
   scenario 'a user can create new comment by filling out a form' do
     category = Category.create!(title: 'Information')
     company = Company.create!(name: 'ESPN')
@@ -13,8 +13,8 @@ describe 'User sees a job comment' do
 
     content = 'This is some content'
 
-    fill_in 'job_comment[content]', with: content
-    click_on 'Create Job comment'
+    fill_in 'comment[content]', with: content
+    click_on 'Create Comment'
 
     expect(current_path).to eq(company_job_path(company, job))
     expect(page).to have_content(content)
@@ -32,22 +32,22 @@ describe 'User sees a job comment' do
 
     content1 = 'This is some old content'
 
-    fill_in 'job_comment[content]', with: content1
-    click_on 'Create Job comment'
+    fill_in 'comment[content]', with: content1
+    click_on 'Create Comment'
 
     expect(page).to have_content(content1)
 
     content2 = 'This is some newer content'
 
-    fill_in 'job_comment[content]', with: content2
-    click_on 'Create Job comment'
+    fill_in 'comment[content]', with: content2
+    click_on 'Create Comment'
 
     expect(page).to have_content(content2)
 
     content3 = 'This is the newest content'
 
-    fill_in 'job_comment[content]', with: content3
-    click_on 'Create Job comment'
+    fill_in 'comment[content]', with: content3
+    click_on 'Create Comment'
 
     expect(page).to have_content(content3)
   end
