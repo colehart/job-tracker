@@ -1,7 +1,8 @@
+# app/controllers/contacts_controller
 class ContactsController < ApplicationController
   def new
     @company = Company.find(params[:company_id])
-    @contact = Contact.new()
+    @contact = Contact.new
   end
 
   def create
@@ -15,11 +16,9 @@ class ContactsController < ApplicationController
     end
   end
 
-
   private
 
   def contact_params
     params.require(:contact).permit(:name, :position, :email)
   end
-
 end

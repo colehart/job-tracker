@@ -1,3 +1,4 @@
+# app/controllers/companies_controller
 class CompaniesController < ApplicationController
   def index
     @companies = Company.all
@@ -19,6 +20,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find(params[:id])
+    @contact = Contact.new
   end
 
   def edit

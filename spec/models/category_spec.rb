@@ -5,13 +5,11 @@ describe Category do
   describe 'validations' do
     context 'invalid attributes' do
       it 'is invalid without a title' do
-        category = Category.new()
+        category = Category.new
         expect(category).to be_invalid
       end
     end
-  end
 
-  describe 'validations' do
     context 'valid attributes' do
       it 'is valid with a title' do
         category = Category.new(title: 'education')
@@ -23,6 +21,13 @@ describe Category do
         category = Category.new(title: 'education')
         expect(category).to be_invalid
       end
+    end
+  end
+
+  describe 'relationships' do
+    it 'has many jobs' do
+      category = Category.new(title: 'education')
+      expect(category).to respond_to(:jobs)
     end
   end
 end

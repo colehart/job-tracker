@@ -2,7 +2,6 @@ require 'rails_helper'
 
 describe 'user creates a category' do
   it 'doesnt allow if already exists' do
-
     category = Category.create(title: 'Education')
 
     visit categories_path
@@ -16,7 +15,6 @@ describe 'user creates a category' do
   end
 
   it 'allows if doesnt exists' do
-
     category = Category.create(title: 'Education')
 
     visit categories_path

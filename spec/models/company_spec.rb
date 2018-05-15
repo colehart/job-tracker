@@ -4,7 +4,7 @@ describe Company do
   describe 'validations' do
     context 'invalid attributes' do
       it 'is invalid without a name' do
-        company = Company.new()
+        company = Company.new
         expect(company).to be_invalid
       end
 
@@ -27,6 +27,11 @@ describe Company do
     it 'has many jobs' do
       company = Company.new(name: 'Dropbox')
       expect(company).to respond_to(:jobs)
+    end
+
+    it 'has many contacts' do
+      company = Company.new(name: 'Dropbox')
+      expect(company).to respond_to(:contacts)
     end
   end
 end

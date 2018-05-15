@@ -1,16 +1,25 @@
-Title: <%= @job.title %>
-<br>
+<%# app/views/job/show%>
+<h1><%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %></h1>
 
-Description: <%= @job.description %>
-<br>
+  <%= link_to "Edit", edit_company_job_path(@company, @job) %>
+  <%= link_to "Delete", company_job_path, method: :delete %>
+<h3>Description: <%= @job.description %></h3>
 
-Level of Interest: <%= @job.level_of_interest %>
-<br>
-
-City: <%= @job.city %>
-<br>
-
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
-<br>
-<%= link_to "Edit", edit_company_job_path(@company, @job) %>
-<%= link_to "Delete", company_job_path, method: :delete %>
+<h3>Location: <%= @job.city %></h3>
+<h3>Level of Interest: <%= @job.level_of_interest %></h3>
+<section id="job-comment-form">
+  <h3>Notes:</h3>
+  <%= form_for [@job, @job_comment] do |f| %>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+  <% end %>
+</section>
+<hr>
+<ul>
+  <% if @job_comments %>
+    <%  @job_comments.each do |comment| %>
+      <li><%= comment.created_at %><%= comment.content %></li>
+    <% end %>
+  <% end %>
+</ul>

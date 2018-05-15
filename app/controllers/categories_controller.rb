@@ -1,8 +1,7 @@
+# app/contollers/categories_controller
 class CategoriesController < ApplicationController
-
   def index
     @categories = Category.all
-
   end
 
   def new
@@ -48,15 +47,9 @@ class CategoriesController < ApplicationController
     redirect_to categories_path
   end
 
-
   private
 
   def category_params
     params.require(:category).permit(:title)
-
   end
-
-
-
-
 end

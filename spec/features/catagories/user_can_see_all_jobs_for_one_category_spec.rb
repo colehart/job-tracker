@@ -5,11 +5,10 @@ describe 'User sees one category' do
     category = Category.create(title: 'Finance')
     company = Company.create!(name: 'Shelby')
     job = company.jobs.create!(title: 'acountant',
-                         description: 'accountant in denver',
-                       level_of_interest: 100,
-                     city: 'denver',
-                   category: category)
-
+                               description: 'accountant in denver',
+                               level_of_interest: 100,
+                               city: 'denver',
+                               category: category)
 
     visit category_path(category)
 
@@ -22,18 +21,15 @@ describe 'User sees one category' do
     category = Category.create(title: 'Finance')
     company = Company.create!(name: 'Shelby')
     job = company.jobs.create!(title: 'acountant',
-                         description: 'accountant in denver',
-                       level_of_interest: 100,
-                     city: 'denver',
-                   category: category)
-
+                               description: 'accountant in denver',
+                               level_of_interest: 100,
+                               city: 'denver',
+                               category: category)
 
     visit category_path(category)
 
     click_on job.title
 
     expect(current_path).to eq(company_job_path(company, job))
-
   end
-
 end
