@@ -19,7 +19,7 @@
 <ul>
   <% if @job_comments %>
     <%  @job_comments.each do |comment| %>
-      <li><%= comment.created_at %><%= comment.content %></li>
+      <li><%= comment.created_at %> <%= comment.content %></li>
     <% end %>
   <% end %>
 </ul>
