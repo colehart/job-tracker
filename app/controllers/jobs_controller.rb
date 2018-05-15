@@ -1,7 +1,7 @@
 # app/controllers/jobs_controller
 class JobsController < ApplicationController
   def index
-    if @company
+    if params[:company_id]
       @company = Company.find(params[:company_id])
       @jobs = @company.jobs
     else
