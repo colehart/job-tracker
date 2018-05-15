@@ -1,8 +1,16 @@
 <%# app/views/job/index %>
-
-All Jobs for <strong><%= @company.name %></strong>
+<% if @company %>
+  All Jobs for <strong><%= @company.name %></strong>
+  <p><%= link_to "Create New Job for #{@company.name}", new_company_job_path %></p>
+<% else %>
+    All Jobs
+<% end %>
 
 <% @jobs.each do |job| %>
-  <ul><%= link_to job.title, company_job_path(@company, job) %>at<%= job.company.name %></ul>
+<ul>
+  <% company = Company.find(job.company_id) %>
+  <li>
+    <%= link_to job.title, company_job_path(company, job) %>at<%= job.company.name %>
+  </li>
+</ul>
 <% end %>
-<ul><li><%= link_to "Create New Job for #{@company.name}", new_company_job_path %></li></ul>
