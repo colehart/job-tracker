@@ -1,9 +1,10 @@
+<%# app/views/companies/index %>
 <h3>All Companies</h3>
 
 <ul>
   <% @companies.each do |company| %>
   <li class=company_<%= company.id %>>
-    <%= link_to company.name, company_path(company) %>: 
+    <%= link_to company.name, company_path(company) %>:
     <%= link_to "Edit", edit_company_path(company) %>
     <%= link_to "Delete", company_path(company), method: "delete" %>
   </li>
