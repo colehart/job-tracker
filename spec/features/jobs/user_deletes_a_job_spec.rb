@@ -17,14 +17,6 @@ describe 'User sees all jobs' do
     visit company_job_path(company, job)
 
     click_on 'Delete'
-
     expect(current_path).to eq("/companies/#{company.id}/jobs")
-
-    visit company_job_path(company, job1)
-
-    click_on 'Delete'
-
-    expect(current_path).to eq("/companies/#{company.id}/jobs")
-    expect(page).to have_content('Developer deleted!')
   end
 end

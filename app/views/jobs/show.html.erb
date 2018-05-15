@@ -1,7 +1,8 @@
+<%# app/views/job/show%>
 <h1><%= @job.title %> at <%= link_to @job.company.name, company_path(@job.company) %></h1>
 
-<button><%= link_to "Edit", edit_company_job_path(@company, @job) %></button>
-<button><%= link_to "Delete", company_job_path, method: :delete %></button>
+  <%= link_to "Edit", edit_company_job_path(@company, @job) %>
+  <%= link_to "Delete", company_job_path, method: :delete %>
 <h3>Description: <%= @job.description %></h3>
 
 <h3>Location: <%= @job.city %></h3>
