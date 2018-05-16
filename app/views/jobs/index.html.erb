@@ -21,7 +21,7 @@
   <tr>
     <th>Role</th>
     <th>Company</th>
-    <th>City</th>
+    <th><%=link_to 'City', '/jobs?sort=location'%></th>
     <th>Interest</th>
   </tr>
     <%@jobs.each do |j| %>
