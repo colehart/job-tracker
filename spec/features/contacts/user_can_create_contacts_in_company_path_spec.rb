@@ -8,6 +8,7 @@ describe 'when user visits company page' do
     name = 'Manoj'
     position = 'Hing Manager'
     email = 'manoj.email.com'
+    contacts_headline = 'Existing Contacts'
 
     fill_in 'contact[name]', with: name
     fill_in 'contact[position]', with: position
@@ -17,6 +18,7 @@ describe 'when user visits company page' do
 
     expect(current_path).to eq(company_path(company))
 
+    expect(page).to have_content(contacts_headline)
     expect(page).to have_content(name)
     expect(page).to have_content(position)
     expect(page).to have_content(email)
