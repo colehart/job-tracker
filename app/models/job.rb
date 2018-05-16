@@ -20,4 +20,8 @@ class Job < ApplicationRecord
   def self.count_by_city
     select('jobs.city, count(jobs.id) as job_count').group('jobs.city').order('job_count DESC').limit(3)
   end
+
+  def self.count_by_interest
+    select('jobs.level_of_interest, count(jobs.id) as job_count').group('jobs.level_of_interest').order('job_count DESC').limit(3)
+  end
 end

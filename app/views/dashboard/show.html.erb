@@ -1,11 +1,21 @@
 <strong>Job Tracker</strong>
-<ul>
+<article class="dashboard">
+  <h3>Jobs by Interest</h3>
+  <% if @top_jobs.length >= 3 %>
+  <p>***** <%="(#{@top_jobs.first.job_count} jobs)" %></p>
+  <p>**** <%="(#{@top_jobs[1].job_count} jobs)" %></p>
+  <p>*** <%="(#{@top_jobs.last.job_count} jobs)" %></p>
+  <%else%>
+    <h3> there is no jobs </h3>
+  <%end%>
+</article>
+
+
+
+<ul class="job-by-city">
   <% @cities.each do |c| %>
   <li>
   <%=link_to "#{c.city} jobs",  "/jobs?location=#{c.city}" %> <%="(#{c.job_count} jobs)" %>
-
   </li>
   <% end %>
-
-
 </ul>
