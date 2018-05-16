@@ -35,6 +35,7 @@ class CategoriesController < ApplicationController
       flash[:success] = "#{@category.title} updated!"
       redirect_to category_path(@category)
     else
+      flash[:success] = 'Please Fill in New Title'
       render :edit
     end
   end
