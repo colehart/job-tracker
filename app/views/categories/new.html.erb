@@ -1,4 +1,8 @@
+<link rel="stylesheet" href="/categories-new.css" title="CSS" type="text/css"/>
 <%# app/views/categories/new %>
-<h2>Create New category!</h2>
+<h2 class='headline'>Create New category!</h2>
 
+<div class='form-for-new-category'>
 <%= render partial: 'form' %>
+<%= link_to 'Cancel', categories_path %>
+</div>

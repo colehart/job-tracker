@@ -6,9 +6,11 @@
 <ul>
   <%@categories.each do |c| %>
   <li class=category_<%=c.id%>>
-    <%= link_to c.title, category_path(c) %>
     <%= link_to 'Edit', edit_category_path(c) %>
     <%= link_to 'Delete', category_path(c), method: "delete" %>
+    <%= link_to c.title, category_path(c) %>
+    <%= link_to "#{c.jobs.count} jobs", category_path(c) %>
+    <hr>
   </li>
   <%end%>
 </ul>
