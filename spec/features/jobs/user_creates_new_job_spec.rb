@@ -11,8 +11,7 @@ describe 'User creates a new job' do
     fill_in 'job[description]', with: 'So fun!'
     fill_in 'job[level_of_interest]', with: 80
     fill_in 'job[city]', with: 'Denver'
-    fill_in 'job[category_id]', with: category.id.to_s
-
+    select 'Information', from: 'job_category_id'
     click_button 'Create'
 
     expect(current_path).to eq("/companies/#{company.id}/jobs/#{Job.last.id}")
