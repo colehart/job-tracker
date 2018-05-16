@@ -1,11 +1,27 @@
 <%# app/views/categories/show %>
+<link rel="stylesheet" href="/categories-show.css" title="CSS" type="text/css"/>
+
+<br>
 <strong>All Jobs For <%=@category.title %></strong>
+<br>
+<br>
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Company</th>
+    <th>City</th>
+    <th>Interest</th>
+  </tr>
+    <%@jobs.each do |j| %>
+    <tr>
+    <td><%= link_to j.title, company_job_path(Company.find(j.company_id), j)%></td>
+    <td><%= link_to Company.find(j.company_id).name, company_job_path(Company.find(j.company_id), j)%></td>
+    <td><%= link_to j.city, company_job_path(Company.find(j.company_id), j)%></td>
+    <td><%= link_to j.level_of_interest, company_job_path(Company.find(j.company_id), j)%></td>
+    </tr>
+  <%end%>
 
-<ul>
-  <%@jobs.each do |j| %>
-    <li><%= link_to j.title, company_job_path(Company.find(j.company_id), j)%></li>
-    <%end%>
-</ul>
 
+</table>
 <br>
 <%= link_to "<<Back to categories", categories_path %>
