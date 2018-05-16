@@ -3,5 +3,10 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
 
-  <%= f.submit %>
+<section class="button-group">
+  <button class="cancel-button">
+    <%= link_to 'Cancel', categories_path %>
+  </button>
+  <%= f.submit class: 'submit-button' %>
+</section>
 <% end %>

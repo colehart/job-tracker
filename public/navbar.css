@@ -15,3 +15,8 @@
   color: white;
   text-decoration: none;
 }
+
+.flash {
+  margin: 2rem;
+  color: red;
+}

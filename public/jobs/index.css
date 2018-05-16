@@ -1,12 +1,6 @@
-
+/* public/jobs/index */
 .headline {
   font-size: 40px;
-}
-
-.create-category-headline {
-  font-size: 20px;
-  padding-left: 20px;
-
 }
 
 table {
@@ -16,7 +10,6 @@ table {
 }
 
 td, th {
-    background: beige;
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
@@ -24,6 +17,10 @@ td, th {
 
 tr {
     background-color: #dddddd;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 td, a {
