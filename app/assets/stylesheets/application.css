@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+ .button-group{
+   display: flex;
+   justify-content: center:
+   width: auto;
+   margin: 1rem;
+ }
+
+ .cancel-button{
+   width: auto;
+   margin: 1rem;
+   border-radius: 0;
+ }
+
+ .submit-button{
+   width: auto;
+   margin: 1rem;
+   border-radius: 0;
+ }
