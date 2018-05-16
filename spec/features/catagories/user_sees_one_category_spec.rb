@@ -14,7 +14,7 @@ describe 'User sees one category' do
     category = Category.create(title: 'Finance')
 
     visit category_path(category)
-    click_on '<<Back to categories'
+    click_on 'Categories'
 
     expect(current_path).to eq(categories_path)
   end

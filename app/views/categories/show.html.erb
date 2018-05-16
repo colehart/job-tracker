@@ -7,6 +7,7 @@
 <br>
 <table>
   <tr>
+    <th></th>
     <th>Role</th>
     <th>Company</th>
     <th>City</th>
@@ -14,6 +15,8 @@
   </tr>
     <%@jobs.each do |j| %>
     <tr>
+      <td><%= link_to 'Edit', edit_company_job_path(Company.find(j.company_id), j) %>
+      <%= link_to 'Delete', company_job_path(Company.find(j.company_id), j), method: "delete" %></td>
     <td><%= link_to j.title, company_job_path(Company.find(j.company_id), j)%></td>
     <td><%= link_to Company.find(j.company_id).name, company_job_path(Company.find(j.company_id), j)%></td>
     <td><%= link_to j.city, company_job_path(Company.find(j.company_id), j)%></td>
@@ -24,4 +27,3 @@
 
 </table>
 <br>
-<%= link_to "<<Back to categories", categories_path %>

@@ -1,16 +1,41 @@
 <%# app/views/job/index %>
-<% if @company != nil %>
+<link rel="stylesheet" href="/job-index.css" title="CSS" type="text/css"/>
+
+<br>
+<% if @company%>
   <strong>All Jobs for <%= @company.name %></strong>
   <%= link_to "Create New Job for #{@company.name}", new_company_job_path %>
+<% elsif @location %>
+  <strong><%=@location%> jobs</strong>
+<% elsif @location1 %>
+  <strong><%=@location1%></strong>
+<% elsif @interest %>
+  <strong><%=@interest%></strong>
 <% else %>
     <strong>All Jobs</strong>
 <% end %>
+<br>
+<br>
 
-<% @jobs.each do |job| %>
-<ul>
-  <% company = Company.find(job.company_id) %>
-  <li>
-    <%= link_to job.title, company_job_path(company, job) %> at <%= job.company.name %> in <%= job.city %>
-  </li>
-</ul>
-<% end %>
+<table>
+  <tr>
+    <th></th>
+    <th>Role</th>
+    <th>Company</th>
+    <th>City</th>
+    <th>Interest</th>
+  </tr>
+    <%@jobs.each do |j| %>
+    <tr>
+    <td><%= link_to 'Edit', edit_company_job_path(Company.find(j.company_id), j) %>
+      <%= link_to 'Delete', company_job_path(Company.find(j.company_id), j), method: "delete" %>
+    </td>
+    <td><%= link_to j.title, company_job_path(Company.find(j.company_id), j)%></td>
+    <td><%= link_to Company.find(j.company_id).name, company_job_path(Company.find(j.company_id), j)%></td>
+    <td><%= link_to j.city, company_job_path(Company.find(j.company_id), j)%></td>
+    <td><%= link_to j.level_of_interest, company_job_path(Company.find(j.company_id), j)%></td>
+    </tr>
+  <%end%>
+
+
+</table>
