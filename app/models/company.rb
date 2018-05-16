@@ -5,6 +5,6 @@ class Company < ApplicationRecord
   has_many :contacts
 
   def self.top_companies_by_interest
-      joins(:jobs).select('companies.name, avg(jobs.level_of_interest) AS avg_interest').group('companies.id').order('avg_interest DESC')
+    joins(:jobs).select('companies.name, avg(jobs.level_of_interest) AS avg_interest').group('companies.id').order('avg_interest DESC')
   end
 end

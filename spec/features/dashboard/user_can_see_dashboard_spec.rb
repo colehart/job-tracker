@@ -134,9 +134,8 @@ describe 'when user visits dashboard' do
                        category: category)
 
     visit root_path
-    save_and_open_page
     name3 = "#{company3.name} (3.0 stars)" # which should be apple should see #apple (3.0 stars)
-    name2 = "#{company2.name} (2.5 stars)" # which should be amazon should see amazon (2.4 stars) 
+    name2 = "#{company2.name} (2.5 stars)" # which should be amazon should see amazon (2.4 stars)
     name1 = "#{company1.name} (2.0 stars)" # which should be turing should see turing (2.0 stars)
 
     expect(page).to have_content('Top Companies by Interest')
