@@ -13,3 +13,7 @@ td, th {
 tr {
     background-color: #dddddd;
 }
+
+td, a {
+  text-decoration: none;
+}

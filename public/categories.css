@@ -8,3 +8,24 @@
   padding-left: 20px;
 
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    background: beige;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr {
+    background-color: #dddddd;
+}
+
+td, a {
+  text-decoration: none;
+}
