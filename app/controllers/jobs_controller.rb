@@ -57,7 +57,7 @@ class JobsController < ApplicationController
       flash[:success] = "#{@job.title} updated!"
       redirect_to company_job_path(@company = Company.find(@job.company_id), @job)
     else
-      flash[:success] = "Please Fill In All The Fields."
+      flash[:failure] = "Please Fill In All The Fields."
       render :edit
     end
   end
