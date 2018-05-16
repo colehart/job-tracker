@@ -1,5 +1,5 @@
 <%# app/views/job/index %>
-<link rel="stylesheet" href="/job/index.css" title="CSS" type="text/css"/>
+<link rel="stylesheet" href="/jobs/index.css" title="CSS" type="text/css"/>
 
 <br>
 <% if @company%>
@@ -22,8 +22,8 @@
     <th></th>
     <th>Role</th>
     <th>Company</th>
-    <th>City</th>
-    <th>Interest</th>
+    <th><%=link_to 'City', '/jobs?sort=location'%></th>
+    <th><%=link_to 'Interest', '/jobs?sort=interest'%></th>
   </tr>
     <%@jobs.each do |j| %>
     <tr>
