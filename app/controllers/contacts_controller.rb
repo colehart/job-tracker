@@ -12,6 +12,7 @@ class ContactsController < ApplicationController
       flash[:success] = "A contact for #{@contact.name} has been added!"
       redirect_to company_path(@company)
     else
+      flash[:failed] = "Please Fill in All the Fields"
       render :new
     end
   end

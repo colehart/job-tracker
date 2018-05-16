@@ -32,6 +32,7 @@ class JobsController < ApplicationController
       flash[:success] = "You created #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
     else
+      flash[:failed] = "Please Fill in All the Fields to Create New Job"
       render :new
     end
   end

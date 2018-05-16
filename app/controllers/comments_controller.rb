@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
       flash[:success] = "A comment for #{@job.title} has been added!"
       redirect_to company_job_path(@company, @job)
     else
+      flash[:success] = "Please Fill in the Content Field."
       render :new
     end
   end
