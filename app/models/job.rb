@@ -24,4 +24,8 @@ class Job < ApplicationRecord
   def self.count_by_interest
     select('jobs.level_of_interest, count(jobs.id) as job_count').group('jobs.level_of_interest').order('job_count DESC').limit(3)
   end
+
+  def self.average_interest
+    average()
+  end
 end
