@@ -10,7 +10,7 @@
 <ul>
   <% company = Company.find(job.company_id) %>
   <li>
-    <%= link_to job.title, company_job_path(company, job) %>at<%= job.company.name %>
+    <%= link_to job.title, company_job_path(company, job) %> at <%= job.company.name %> in <%= job.city %>
   </li>
 </ul>
 <% end %>
