@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" href="/navbar.css" title="CSS" type="text/css"/>
   <title>JobTracker</title>
   <%= stylesheet_link_tag    'application', media: 'all'  %>
   <%= javascript_include_tag 'application' %>
@@ -10,6 +11,11 @@
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: name %>
   <% end %>
+  <div class="navigation">
+    <h3><%= link_to "Categories", categories_path %></h3>
+    <h3><%= link_to "Companies", companies_path %></h3>
+    <h3><%= link_to "Jobs", jobs_path %><h3>
+  </div>
 <%= yield %>
 
 </body>

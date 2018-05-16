@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/dashboard.css" title="CSS" type="text/css"/>
+<strong class='headline'>Job Tracker</strong>
+
+<div  class="dashboard">
+  <article class='article1'>
+    <h3>Jobs by Interest</h3>
+    <% if @top_jobs.length >= 3 %>
+    <p>***** <%="(#{@top_jobs[0].job_count} jobs)" %></p>
+    <p>**** <%="(#{@top_jobs[1].job_count} jobs)" %></p>
+    <p>*** <%="(#{@top_jobs[2].job_count} jobs)" %></p>
+    <%else%>
+      <h3></h3>
+    <%end%>
+  </article>
+  <article class="article2">
+    <h3>Top Companies by Interest</h3>
+    <% if @top_companies.length >= 3 %>
+    <p><%="#{@top_companies[0].name} (#{@top_companies[0].avg_interest/20} stars)" %></p>
+    <p><%="#{@top_companies[1].name} (#{@top_companies[1].avg_interest/20} stars)" %></p>
+    <p><%="#{@top_companies[2].name} (#{@top_companies[2].avg_interest/20} stars)" %></p>
+    <%else%>
+    <h3> there is no jobs </h3>
+    <%end%>
+  </article>
+</div>
+<div class="job-by-city">
+  <% @cities.each do |c| %>
+  <br>
+  <%=link_to "#{c.city} jobs",  "/jobs?location=#{c.city}" %> <%="(#{c.job_count} jobs)" %>
+  <% end %>
+</div>

@@ -1,19 +1,4 @@
 <%# app/views/job/edit %>
 <h1>Edit a Job</h1>
 
-<%= form_for [@company, @job] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.label :level_of_interest %>
-  <%= f.number_field :level_of_interest %>
-
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-
-
-  <%= f.submit %>
-<% end %>
+<%= render partial: "form" %>

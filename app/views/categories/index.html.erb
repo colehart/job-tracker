@@ -1,13 +1,21 @@
 <%# app/views/categories/index %>
-<h3> all categories </h3>
-<ul>
-  <%@categories.each do |c| %>
-  <li class=category_<%=c.id%>>
-    <%= link_to c.title, category_path(c) %>
-    <%= link_to 'Edit', edit_category_path(c) %>
-    <%= link_to 'Delete', category_path(c), method: "delete" %>
-  </li>
-  <%end%>
-</ul>
+<link rel="stylesheet" href="/categories.css" title="CSS" type="text/css"/>
 
-<%= link_to "Create New Category", new_category_path %>
+<h3 class='headline'> Job Categories </h3>
+<h3 class='create-category-headline'><%= link_to "Create New Category", new_category_path %></h3>
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+    <%@categories.each do |c| %>
+    <tr>
+      <td><%= link_to 'Edit', edit_category_path(c) %>
+      <%= link_to 'Delete', category_path(c), method: "delete" %></td>
+      <td><%= link_to c.title, category_path(c) %></td>
+      <td><%= link_to "#{c.jobs.count} jobs", category_path(c) %></td>
+    </tr>
+  <%end%>
+</table>

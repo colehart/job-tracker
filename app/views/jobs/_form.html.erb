@@ -14,12 +14,7 @@
   <%= f.text_field :city %>
 
   <%= f.label :category_id %>
-  <%= f.text_field :category_id %>
-  <select>
-    <%@categories.each do |c| %>
-    <option value="#{<%=c.id%>}"><%=c.title%></option>
-    <%end%>
-  </select>
+  <%= f.collection_select(:category_id, @categories, :id, :title)%>
 
 
 

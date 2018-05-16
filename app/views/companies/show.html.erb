@@ -1,9 +1,10 @@
 <%# app/views/companies/show %>
+<link rel="stylesheet" href="/company-path.css" title="CSS" type="text/css"/>
 <strong><%= @company.name %></strong>
 <button><%= link_to "Edit", edit_company_path %></button>
 <button><%= link_to "Delete", company_path, method: :delete %></button>
 
-<%= link_to "All #{@company.name} Jobs", company_jobs_path(@company) %>
+<h3 class ='all-jobs-link'><%= link_to "All #{@company.name} Jobs", company_jobs_path(@company) %></h3>
 
 <h3>Enter New Contact Info:</h3>
 
@@ -22,7 +23,7 @@
 
 <h3>Existing Contacts</h3>
 <ul>
-<% @company.contacts.each do |contact| %>
+<% @company_contacts.each do |contact| %>
   <li><%=contact.name%> <%=contact.position%> <%=contact.email%></li>
 <%end%>
 </ul>

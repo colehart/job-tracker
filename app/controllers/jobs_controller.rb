@@ -1,8 +1,21 @@
 # app/controllers/jobs_controller
 class JobsController < ApplicationController
   def index
-    @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+      @jobs = @company.jobs
+    elsif params[:sort] == 'location'
+      @location1 = "All Jobs Sorted by Location"
+      @jobs = Job.sort_by_location
+    elsif params[:sort] == 'interest'
+      @interest = "All Jobs Sorted by Level of Interest"
+      @jobs = Job.sort_by_interest_level
+    elsif params[:location]
+      @location = params[:location]
+      @jobs = Job.group_by_city(@location)
+    else
+      @jobs = Job.all
+    end
   end
 
   def new
@@ -31,6 +44,7 @@ class JobsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
     @company = Company.find(params[:company_id])
     @job = Job.find(params[:id])
   end

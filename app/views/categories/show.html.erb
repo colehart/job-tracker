@@ -1,11 +1,29 @@
 <%# app/views/categories/show %>
-<strong>All Jobs For <%=@category.title %></strong>
-
-<ul>
-  <%@jobs.each do |j| %>
-    <li><%= link_to j.title, company_job_path(Company.find(j.company_id), j)%></li>
-    <%end%>
-</ul>
+<link rel="stylesheet" href="/categories-show.css" title="CSS" type="text/css"/>
 
 <br>
-<%= link_to "<<Back to categories", categories_path %>
+<strong>All Jobs For <%=@category.title %></strong>
+<br>
+<br>
+<table>
+  <tr>
+    <th></th>
+    <th>Role</th>
+    <th>Company</th>
+    <th>City</th>
+    <th>Interest</th>
+  </tr>
+    <%@jobs.each do |j| %>
+    <tr>
+      <td><%= link_to 'Edit', edit_company_job_path(j.company, j) %>
+      <%= link_to 'Delete', company_job_path(j.company, j), method: "delete" %></td>
+    <td><%= link_to j.title, company_job_path(j.company, j)%></td>
+    <td><%= link_to j.company.name, company_job_path(j.company, j)%></td>
+    <td><%= link_to j.city, company_job_path(j.company, j)%></td>
+    <td><%= link_to j.level_of_interest, company_job_path(j.company, j)%></td>
+    </tr>
+  <%end%>
+
+
+</table>
+<br>
