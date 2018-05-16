@@ -27,13 +27,13 @@
   </tr>
     <%@jobs.each do |j| %>
     <tr>
-    <td><%= link_to 'Edit', edit_company_job_path(Company.find(j.company_id), j) %>
-      <%= link_to 'Delete', company_job_path(Company.find(j.company_id), j), method: "delete" %>
+    <td><%= link_to 'Edit', edit_company_job_path(j.company, j) %>
+      <%= link_to 'Delete', company_job_path(j.company, j), method: "delete" %>
     </td>
-    <td><%= link_to j.title, company_job_path(Company.find(j.company_id), j)%></td>
-    <td><%= link_to Company.find(j.company_id).name, company_job_path(Company.find(j.company_id), j)%></td>
-    <td><%= link_to j.city, company_job_path(Company.find(j.company_id), j)%></td>
-    <td><%= link_to j.level_of_interest, company_job_path(Company.find(j.company_id), j)%></td>
+    <td><%= link_to j.title, company_job_path(j.company, j)%></td>
+    <td><%= link_to j.company.name, company_job_path(j.company, j)%></td>
+    <td><%= link_to j.city, company_job_path(j.company, j)%></td>
+    <td><%= link_to j.level_of_interest, company_job_path(j.company, j)%></td>
     </tr>
   <%end%>
 
