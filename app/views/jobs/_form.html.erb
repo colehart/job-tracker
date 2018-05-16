@@ -16,7 +16,10 @@
   <%= f.label :category_id %>
   <%= f.collection_select(:category_id, @categories, :id, :title)%>
 
-
-
-  <%= f.submit %>
+  <section class="button-group">
+    <button class="cancel-button">
+      <%= link_to 'Cancel', companies_path %>
+    </button>
+    <%= f.submit class: 'submit-button' %>
+  </section>
 <% end %>
