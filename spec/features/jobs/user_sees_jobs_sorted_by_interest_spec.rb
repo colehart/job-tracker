@@ -1,15 +1,15 @@
 require 'rails_helper'
 
-describe 'User sees jobs sorted by location' do
-  scenario 'a user sees all the jobs sorted by location' do
-    category = Category.create!(title: 'Design')
+describe 'User sees jobs sorted by interest' do
+  scenario 'a user sees all the jobs sorted by interest' do
+    category = Category.create!(title: 'Information')
     company = Company.create!(name: 'ESPN')
     job1 = company.jobs.create!(title: 'Developer',
-                                level_of_interest: 70,
+                                level_of_interest: 30,
                                 city: 'Denver',
                                 category: category)
     job2 = company.jobs.create!(title: 'UX Designer',
-                                level_of_interest: 70,
+                                level_of_interest: 40,
                                 city: 'New York City',
                                 category: category)
     job3 = company.jobs.create!(title: 'QA Analyst',
@@ -17,7 +17,7 @@ describe 'User sees jobs sorted by location' do
                                 city: 'Washington, D.C.',
                                 category: category)
 
-    visit '/jobs?sort=location'
+    visit '/jobs?sort=interest'
 
     expect(page).to have_content(job1.title)
     expect(page).to have_content(job2.title)

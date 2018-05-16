@@ -10,9 +10,11 @@
   <% flash.each do |name, msg| %>
     <%= content_tag :div, msg, class: name %>
   <% end %>
-<%= link_to "Categories", categories_path %>
-<%= link_to "Jobs", jobs_path %>
-<br>
+  <section class="navigation">
+    <%= link_to "Categories", categories_path %>
+    <%= link_to "Jobs", jobs_path %>
+  </section>
+  
 <%= yield %>
 
 </body>

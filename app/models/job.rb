@@ -8,4 +8,12 @@ class Job < ApplicationRecord
   def self.sort_by_location
     order('city ASC')
   end
+
+  def self.sort_by_interest_level
+    order('level_of_interest DESC')
+  end
+
+  def self.group_by_city(desired_city)
+    select('*').where(city: desired_city)
+  end
 end

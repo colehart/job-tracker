@@ -79,23 +79,60 @@ describe Job do
       expect(sorted_jobs.first.title).to eq(job1.title)
       expect(sorted_jobs.last.title).to eq(job3.title)
     end
-    # it 'can sort by city' do
-    #   company = Company.new(name: 'Turing')
-    #   category = Category.create!(title: 'Information')
-    #   job1 = Job.create!(title: 'Developer',
-    #                      level_of_interest: 40,
-    #                      city: 'Denver',
-    #                      company: company,
-    #                      category: category)
-    #   job2 = Job.create!(title: 'Developer',
-    #                      level_of_interest: 40,
-    #                      city: 'Seattle',
-    #                      company: company,
-    #                      category: category)
-    #   desired_location = 'Seattle'
-    #
-    #   sorted_jobs = Job.where(city: desired_location)
-    #   expect(sorted_jobs).to eq(job2)
-    # end
+    it 'can sort by interest_level' do
+      company = Company.new(name: 'Turing')
+      category = Category.create!(title: 'Design')
+      job1 = Job.create!(title: 'Developer',
+                         level_of_interest: 30,
+                         city: 'Denver',
+                         company: company,
+                         category: category)
+      job2 = Job.create!(title: 'Developer',
+                         level_of_interest: 20,
+                         city: 'Seattle',
+                         company: company,
+                         category: category)
+      job3 = Job.create!(title: 'Developer',
+                         level_of_interest: 70,
+                         city: 'Washington, D.C.',
+                         company: company,
+                         category: category)
+
+      sorted_jobs = Job.sort_by_interest_level
+
+      expect(sorted_jobs.first.title).to eq(job3.title)
+      expect(sorted_jobs[1].title).to eq(job1.title)
+      expect(sorted_jobs.last.title).to eq(job2.title)
+    end
+    it 'can sort by city' do
+      company = Company.new(name: 'Turing')
+      category = Category.create!(title: 'Software')
+      job1 = Job.create!(title: 'Developer',
+                         level_of_interest: 40,
+                         city: 'Denver',
+                         company: company,
+                         category: category)
+      job2 = Job.create!(title: 'Developer',
+                         level_of_interest: 40,
+                         city: 'Denver',
+                         company: company,
+                         category: category)
+      job3 = Job.create!(title: 'Developer',
+                         level_of_interest: 40,
+                         city: 'Seattle',
+                         company: company,
+                         category: category)
+
+      denver_jobs = [job1, job2]
+      seattle_jobs = [job3]
+
+      sorted_jobs = Job.group_by_city('Denver')
+
+      expect(sorted_jobs).to eq(denver_jobs)
+
+      sorted_jobs = Job.group_by_city('Seattle')
+
+      expect(sorted_jobs).to eq(seattle_jobs)
+    end
   end
 end

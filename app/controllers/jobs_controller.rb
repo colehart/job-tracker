@@ -6,6 +6,10 @@ class JobsController < ApplicationController
       @jobs = @company.jobs
     elsif params[:sort] == 'location'
       @jobs = Job.sort_by_location
+    elsif params[:sort] == 'interest'
+      @jobs = Job.sort_by_interest_level
+    elsif params[:location]
+      @jobs = Job.group_by_city(params[:location])
     else
       @jobs = Job.all
     end
