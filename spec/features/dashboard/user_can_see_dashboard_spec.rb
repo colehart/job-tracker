@@ -33,10 +33,16 @@ describe 'when user visits dashboard' do
                        company: company,
                        category: category)
 
-    denver_jobs = [job1, job2]
+    denver_jobs_link = 'Denver jobs'
+    denver_jobs_count = '2 jobs'
+    seattle_jobs_link = 'Seattle jobs'
+    seattle_jobs_count = '1 job'
 
     visit root_path
 
-    expect(page).to have_content(job2)
+    expect(page).to have_link(denver_jobs_link)
+    expect(page).to have_link(seattle_jobs_link)
+    expect(page).to have_content(denver_jobs_count)
+    expect(page).to have_content(seattle_jobs_count)
   end
 end
