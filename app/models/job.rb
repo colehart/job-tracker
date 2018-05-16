@@ -16,4 +16,8 @@ class Job < ApplicationRecord
   def self.group_by_city(desired_city)
     select('*').where(city: desired_city)
   end
+
+  def self.count_by_city
+    select('jobs.city, count(jobs.id) as job_count').group('jobs.city').order('job_count DESC').limit(3)
+  end
 end

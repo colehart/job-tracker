@@ -1,1 +1,11 @@
 <strong>Job Tracker</strong>
+<ul>
+  <% @cities.each do |c| %>
+  <li>
+  <%=link_to "#{c.city} jobs",  "/jobs?location=#{c.city}" %> <%="(#{c.job_count} jobs)" %>
+
+  </li>
+  <% end %>
+
+
+</ul>
