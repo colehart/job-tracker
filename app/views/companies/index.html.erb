@@ -2,12 +2,22 @@
 <link rel="stylesheet" href="/companies/index.css" title="CSS" type="text/css"/>
 <h3>Companies</h3>
 <%= link_to "Add a new company", new_company_path %>
-<ul>
+<br>
+<br>
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+  </tr>
   <% @companies.each do |company| %>
-  <li class=company_<%= company.id %>>
-    <%= link_to company.name, company_path(company) %>:
-    <%= link_to "Edit", edit_company_path(company) %>
-    <%= link_to "Delete", company_path(company), method: "delete" %>
-  </li>
+  <tr>
+    <td>
+      <%= link_to "Edit", edit_company_path(company) %>
+      <%= link_to "Delete", company_path(company), method: "delete" %>
+    </td>
+    <td class="company_<%= company.id %>">
+      <%= link_to company.name, company_path(company) %>
+    </td>
+  </tr>
   <% end %>
-</ul>
+</table>
