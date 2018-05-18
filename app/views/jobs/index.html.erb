@@ -13,6 +13,7 @@
   <strong><%=@interest%></strong>
 <% else %>
     <strong>All Jobs</strong>
+    <center><h3><%=link_to 'Create New Job', new_job_path%></center></h3>
 <% end %>
 <br>
 <p>To sort jobs by City or Level of Interest, click column header.
@@ -27,16 +28,14 @@
     <th><%=link_to 'Interest', '/jobs?sort=interest'%></th>
   </tr>
   <%@jobs.each do |j| %>
-  <tr>
-    <td><%= link_to 'Edit', edit_company_job_path(j.company, j) %>
-      <%= link_to 'Delete', company_job_path(j.company, j), method: "delete" %>
-    </td>
+    <tr>
+      <td><%= link_to 'Edit', edit_company_job_path(j.company, j) %>
+          <%= link_to 'Delete', company_job_path(j.company, j), method: "delete" %>
+      </td>
     <td><%= link_to j.title, company_job_path(j.company, j)%></td>
     <td><%= link_to j.company.name, company_job_path(j.company, j)%></td>
     <td><%= link_to j.city, company_job_path(j.company, j)%></td>
     <td><%= link_to j.level_of_interest, company_job_path(j.company, j)%></td>
-  </tr>
+    </tr>
   <%end%>
-
-
 </table>

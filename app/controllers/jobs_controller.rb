@@ -1,5 +1,6 @@
 # app/controllers/jobs_controller
 class JobsController < ApplicationController
+  # before_action :
   def index
     if params[:company_id]
       @company = Company.find(params[:company_id])
@@ -19,14 +20,20 @@ class JobsController < ApplicationController
   end
 
   def new
+    if params[:company_id]
+      @company = Company.find(params[:company_id])
+    end
     @categories = Category.all
-    @company = Company.find(params[:company_id])
     @job = Job.new
   end
 
   def create
     @categories = Category.all
-    @company = Company.find(params[:company_id])
+    if params[:job][:company_id]
+      @company = Company.find(params[:job][:company_id])
+    else
+      @company = Company.find(params[:company_id])
+    end
     @job = @company.jobs.new(job_params)
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"

@@ -2,11 +2,10 @@
 <%= form_for @category do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
-
-<section class="button-group">
-  <button class="cancel-button">
-    <%= link_to 'Cancel', categories_path %>
-  </button>
-  <%= f.submit class: 'submit-button' %>
-</section>
+  <section class="button-group">
+    <button class="cancel-button">
+      <%= link_to 'Cancel', categories_path %>
+    </button>
+    <%= f.submit class: 'submit-button' %>
+  </section>
 <% end %>
