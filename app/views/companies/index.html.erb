@@ -10,14 +10,14 @@
     <th>Name</th>
   </tr>
   <% @companies.each do |company| %>
-  <tr>
-    <td>
-      <%= link_to "Edit", edit_company_path(company) %>
-      <%= link_to "Delete", company_path(company), method: "delete" %>
-    </td>
-    <td class="company_<%= company.id %>">
-      <%= link_to company.name, company_path(company) %>
-    </td>
-  </tr>
+    <tr>
+      <td>
+        <%= link_to "Edit", edit_company_path(company) %>
+        <%= link_to "Delete", company_path(company), method: "delete" %>
+      </td>
+      <td class="company_<%= company.id %>">
+        <%= link_to company.name, company_path(company) %>
+      </td>
+    </tr>
   <% end %>
 </table>

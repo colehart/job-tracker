@@ -1,6 +1,11 @@
 <%# app/views/job/_form %>
 
-<%= form_for [@company, @job] do |f| %>
+<% if @company %>
+  <%@variable = [@company, @job]%>
+<% else %>
+  <%@variable = @job%>
+<% end %>
+<%= form_for @variable do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
 
@@ -16,10 +21,22 @@
   <%= f.label :category_id %>
   <%= f.collection_select(:category_id, @categories, :id, :title)%>
 
-  <section class="button-group">
-    <button class="cancel-button">
-      <%= link_to 'Cancel', companies_path %>
-    </button>
-    <%= f.submit class: 'submit-button' %>
-  </section>
+  <%if @company%>
+    <section class="button-group">
+      <button class="cancel-button">
+        <%= link_to 'Cancel', company_jobs_path(@company) %>
+      </button>
+      <%= f.submit class: 'submit-button' %>
+    </section>
+  <%else%>
+    <%= f.label :company_id %>
+    <%= f.collection_select(:company_id, Company.all, :id, :name)%>
+    <section class="button-group">
+      <button class="cancel-button">
+        <%= link_to 'Cancel', jobs_path %>
+      </button>
+      <%= f.submit class: 'submit-button' %>
+    </section>
+  <% end %>
+
 <% end %>
